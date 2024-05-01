@@ -13,6 +13,7 @@ import { createProduto, deleteProduto, getAllProdutos, getProduto, getProdutoByN
 import { createEstoque, deleteEstoque, getAllEstoques, getEstoque, getEstoqueByProdutoName, updateEstoque } from "./controller/EstoqueController";
 import { createMesa, deleteMesa, getAllMesas, getMesaByLugares, getMesaByNumero, updateMesa } from "./controller/MesaController";
 import { createAtividadeCasa, deleteAtividadeCasa, getAllAtividadesCasa, updateAtividadeCasa } from "./controller/AtividadecasaController";
+import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas } from "./controller/ReservaMesaController";
 
 
 
@@ -111,3 +112,8 @@ router.post("/create-atividade", createAtividadeCasa);
 router.get("/getAllAtividades", getAllAtividadesCasa);
 router.delete("/delete-atividade/:id", deleteAtividadeCasa);
 router.put("/update-atividade/:id", updateAtividadeCasa);
+
+//Reservar Mesa
+router.patch("/create-reserva/:numero", createReservaMesa);
+router.get("/getAllAvailableTable", getAllMesasDisponiveis);
+router.get("/getAllNotAvailableTable", getAllMesasJaReservadas);

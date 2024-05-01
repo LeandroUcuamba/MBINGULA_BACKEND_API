@@ -48,7 +48,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         const response = await request(app).delete(`/delete-atividade/${id}`);
     }
 
-    describe("Testando login de um usuário", () => {
+    describe("Teste de integração - de login", () => {
         test("Login com usuário e senha corretos - com sucesso", async () => {
             const response = await request(app).post("/sign-in").send({
                 phone: "942583628",
@@ -76,7 +76,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de um usuário do sistema", () => {
+    describe("Teste de integração e End-to-End -  de um usuário", () => {
         test("Criar um usuário - com sucesso", async () => {
             const response = await request(app).post("/user").send({
                 name: "Teste aplicação",
@@ -142,7 +142,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de Tipo de acesso no sistema", () => {
+    describe("Teste de integração e End-to-End - Tipo de acesso (permissão)", () => {
         test("Criar um acesso - com sucesso", async () => {
             const response = await request(app).post("/create-access").send({
                 name: "Teste aplicação",
@@ -168,7 +168,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de um sector do restaurante no sistema", () => {
+    describe("Teste de integração e End-to-End - sector", () => {
         test("Criar um sector - com sucesso", async () => {
             const response = await request(app).post("/create-sector").send({
                 name: "Teste aplicação",
@@ -212,7 +212,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de um item do cardápio no sistema", () => {
+    describe("Teste de integração e End-to-End - item do cardápio", () => {
         test("Criar um item do cardápio - com sucesso", async () => {
             const response = await request(app).post("/create-ItemCardapio").send({
                 name: "Teste aplicação",
@@ -265,7 +265,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de um fornecedor do sistema", () => {
+    describe("Teste de integração e End-to-End - de um fornecedor", () => {
         test("Criar um fornecedor - com sucesso", async () => {
             const response = await request(app).post("/create-fornecedor").send({
                 nome: "Teste aplicação",
@@ -401,7 +401,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de avaliação no sistema", () => {
+    describe("Teste de integração e End-to-End - de avaliação", () => {
         test("Criar uma avaliação - com sucesso", async () => {
             const response = await request(app).post("/create-avaliacao").send({
                 assunto: "Teste aplicação",
@@ -445,7 +445,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de funcionário no sistema", () => {
+    describe("Teste de integração e End-to-End - de funcionário", () => {
         test("Criar um funcionário - com sucesso", async () => {
             const responseSector = await request(app).post("/create-sector").send({
                 name: "Teste aplicação",
@@ -537,7 +537,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de produto no sistema", () => {
+    describe("Teste de integração e End-to-End - de produto", () => {
         test("Criar um produto - com sucesso", async () => {
             const responseFornecedor = await request(app).post("/create-fornecedor").send({
                 nome: "Teste aplicação",
@@ -647,7 +647,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Testando CRUD de estoque no sistema", () => {
+    describe("Teste de integração e End-to-End - de estoque ", () => {
         test("Criar um estoque - com sucesso", async () => {
             const responseFornecedor = await request(app).post("/create-fornecedor").send({
                 nome: "Teste aplicação",
@@ -798,10 +798,9 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
  
-    describe("Testando CRUD de uma mesa no sistema", () => {
+    describe("Teste de integração e End-to-End - de uma mesa", () => {
         test("Criar uma mesa - com sucesso", async () => {
             const response = await request(app).post("/create-mesa").send({
-                numero: 30,
                 lugares: 3,
                 posicao: "Teste Outside"
             });
@@ -811,7 +810,6 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
 
         test("Deletar uma mesa - com sucesso", async () => {
             const response = await request(app).post("/create-mesa").send({
-                numero: 30,
                 lugares: 3,
                 posicao: "Teste Outside"
             });
@@ -829,19 +827,17 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
  
         test("Listar mesa pelo número de identificação existente - com sucesso", async () => {
             const response = await request(app).post("/create-mesa").send({
-                numero: 30,
                 lugares: 3,
                 posicao: "Teste Outside"
             });
 
-            const responseGetByNumero = await request(app).get(`/getMesaByNumero/${30}`);
+            const responseGetByNumero = await request(app).get(`/getMesaByNumero/${1}`);
             expect(responseGetByNumero.statusCode).toBe(200);
             await clearMesaDataTest(await response.body.id);
         });
  
         test("Listar mesa pelo número de identificação que não existe - sem sucesso", async () => {
             const response = await request(app).post("/create-mesa").send({
-                numero: 30,
                 lugares: 3,
                 posicao: "Teste Outside"
             });
@@ -853,7 +849,6 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
  
         test("Listar mesa por número de lugares - com sucesso", async () => {
             const response = await request(app).post("/create-mesa").send({
-                numero: 30,
                 lugares: 3,
                 posicao: "Teste Outside"
             });
@@ -865,7 +860,6 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
  
         test("Listar mesa por número de lugares que não existe - sem sucesso", async () => {
             const response = await request(app).post("/create-mesa").send({
-                numero: 30,
                 lugares: 3,
                 posicao: "Teste Outside"
             });
@@ -877,14 +871,12 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
  
         test("Atualizar uma mesa - com sucesso", async () => {
             const response = await request(app).post("/create-mesa").send({
-                numero: 30,
                 lugares: 3,
                 posicao: "Teste Outside"
             });
             const saveId = await response.body.id;
 
             const responseUpdated = await request(app).put(`/update-mesa/${saveId}`).send({
-                numero: 20,
                 lugares: 5,
                 posicao: "New Teste Outside"
             });
@@ -894,7 +886,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });    
 
-    describe("Testando CRUD de uma atividade do restaurante no sistema", () => {
+    describe("Teste de integração e End-to-End - de uma atividade", () => {
         test("Criar uma atividade local do restaurante - com sucesso", async () => {
             const response = await request(app).post("/create-atividade").send({
                 tema: "Almoço dos kotas",

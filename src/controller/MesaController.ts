@@ -3,10 +3,10 @@ import { prisma } from "../database/prisma";
 
 export const createMesa = async (req: Request, res: Response) => {
   try {
-    const { numero, lugares, posicao } = req.body;
+    const { lugares, posicao } = req.body;
 
     const mesa = await prisma.mesa.create({
-      data: { numero, lugares, posicao },
+      data: { lugares, posicao },
     });
 
     return res.json(mesa);
@@ -99,14 +99,13 @@ export const deleteMesa = async (req: Request, res: Response) => {
 export const updateMesa = async (req: Request, res: Response) => {
   try {
     const mesaId = req.params.id;
-    const { numero, lugares, posicao } = req.body;
+    const { lugares, posicao } = req.body;
 
     await prisma.mesa.update({
       where: {
         id: mesaId,
       },
       data: {
-        numero,
         lugares, 
         posicao
       },
