@@ -23,4 +23,4 @@
 ## ✒️ Autores
 
 * **Desenvolvedor do projeto** - *Backend* - [Leandro Ucuamba](https://ao.linkedin.com/in/leandrosantosucuamba)
-* **Desenvolvedor do projeto** - *FrontEnd - React.js* - [Celso Coutinho](https://ao.linkedin.com/in/celso-coutinho-22075a230)
+* **Desenvolvedor do projeto** - *Frontend (React.js) * - [Celso Coutinho](https://ao.linkedin.com/in/celso-coutinho-22075a230) e [Leandro Ucuamba](https://ao.linkedin.com/in/leandrosantosucuamba).
