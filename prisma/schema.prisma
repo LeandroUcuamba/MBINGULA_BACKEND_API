@@ -62,6 +62,7 @@ model ItemCardapio {
   name       String   @unique
   price      Decimal
   categoria  String
+  disponivel String?   @default("Sim")
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }

@@ -243,7 +243,7 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
 
         test("Listar todos os items do cardápio dados intervalo de preços - com sucesso", async () => {
             const response = await request(app).get(`/getItemsCardapioByInterval/200/500`);
-            expect(response.statusCode).toBe(200 || 204);
+            expect(response.statusCode).toBe(200);
         });
 
         test("Atualizar um item do cardápio - com sucesso", async () => {

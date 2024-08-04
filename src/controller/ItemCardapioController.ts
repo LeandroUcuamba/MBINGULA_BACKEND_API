@@ -82,16 +82,35 @@ export const deleteItemCardapio = async (req: Request, res: Response) => {
 export const updateItemCardapio = async (req: Request, res: Response) => {
   try {
     const itemCardapioId = req.params.id;
-    const { name, price, categoria } = req.body;
+    const { name, price, categoria, disponivel } = req.body;
 
     await prisma.itemCardapio.update({
       where: {
         id: itemCardapioId,
       },
-      data: { name, price, categoria },
+      data: { name, price, categoria, disponivel },
     });
 
     return res.json({ message: "Item do Cardápio Atualizado" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
+export const getItemByAvailable = async (req: Request, res: Response) => {
+  try {
+
+    const disponivel = req.params.disponivel;
+
+    const itemCardapio = await prisma.itemCardapio.findMany({
+      where: {
+        disponivel: {
+          contains: disponivel,
+        }
+      },
+    });
+
+    return res.status(200).json(itemCardapio);
   } catch (error) {
     return res.status(400).json(error);
   }

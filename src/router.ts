@@ -5,7 +5,7 @@ import { signIn } from "./controller/SessionController";
 import { authMiddleware } from "./middleware/AuthMiddleware";
 import { createSector, deleteSector, getAllSectores, updateSector } from "./controller/SectorController";
 import { createFuncionario, deleteFuncionario, deleteManyFuncionario, getAllFuncionarios, getFuncionario, getFuncionarioByName, updateFuncionario } from "./controller/FuncionarioController";
-import { createItemCardapio, deleteItemCardapio, getItemCardapio, getItemCardapioByPriceInterval, updateItemCardapio } from "./controller/ItemCardapioController";
+import { createItemCardapio, deleteItemCardapio, getItemByAvailable, getItemCardapio, getItemCardapioByPriceInterval, updateItemCardapio } from "./controller/ItemCardapioController";
 import { createAvaliacao, deleteAllAvaliacao, deleteAvaliacao, getAllAvaliacao, updateAvaliacao } from "./controller/AvaliacaoController";
 import { createServico, deleteAllServico, deleteServico, getAllServico, updateServico } from "./controller/ServicoRestauranteController";
 import { createFornecedor, deleteFornecedor, getAllFornecedor, getFornecedor, getFornecedorByName, getFornecedorByTelefone, updateFornecedor } from "./controller/FornecedorController";
@@ -56,6 +56,7 @@ router.put("/update-funcionario/:id", updateFuncionario);
 //Item Cardapio
 router.post("/create-ItemCardapio", createItemCardapio);
 router.get("/getItemsCardapio", getItemCardapio);
+router.get("/getItemByAvailable/:disponivel", getItemByAvailable);
 router.get("/getItemsCardapioByInterval/:price_min/:price_max", getItemCardapioByPriceInterval); //////////////////////////////
 router.delete("/delete-itemCardapio/:id", deleteItemCardapio);
 router.put("/update-itemCardapio/:id", updateItemCardapio);
