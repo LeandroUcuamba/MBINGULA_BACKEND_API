@@ -62,9 +62,17 @@ model ItemCardapio {
   name       String   @unique
   price      Decimal
   categoria  String
-  disponivel String?   @default("Sim")
+  Image      Image[]
+  disponivel String?  @default("Sim")
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+}
+
+model Image {
+  id             String       @id @default(uuid())
+  path           String
+  ItemCardapio   ItemCardapio @relation(fields: [itemCardapioId], references: [id])
+  itemCardapioId String
 }
 
 model Avaliacao {
@@ -116,17 +124,17 @@ model Estoque {
 // Trabalhando desde o dia 29/04/2024
 
 model Mesa {
-  id             String        @id @default(uuid())
-  numero         Int           @unique @default(autoincrement())
+  id             String   @id @default(uuid())
+  numero         Int      @unique @default(autoincrement())
   lugares        Int
   posicao        String
-  statusOcupacao String?       @default("Disponível")
+  statusOcupacao String?  @default("Disponível")
   qtd_pessoa     String?
   nome_cliente   String?
   tel_cliente    String?
   dataReserva    String?
-  created_at     DateTime      @default(now())
-  updated_at     DateTime      @updatedAt
+  created_at     DateTime @default(now())
+  updated_at     DateTime @updatedAt
 }
 
 model Atividadecasa {

@@ -15,7 +15,9 @@ import { createMesa, deleteMesa, getAllMesas, getMesaByLugares, getMesaByNumero,
 import { createAtividadeCasa, deleteAtividadeCasa, getAllAtividadesCasa, updateAtividadeCasa } from "./controller/AtividadecasaController";
 import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas } from "./controller/ReservaMesaController";
 
-
+import uploadConfigs from './config/multer'
+import multer from "multer";
+const upload = multer(uploadConfigs);
 
 export const router = Router();
 
@@ -54,7 +56,8 @@ router.get("/getFuncionarioByName/:name", getFuncionarioByName);
 router.put("/update-funcionario/:id", updateFuncionario);
 
 //Item Cardapio
-router.post("/create-ItemCardapio", createItemCardapio);
+
+router.post("/create-ItemCardapio", upload.array("Image"), createItemCardapio);
 router.get("/getItemsCardapio", getItemCardapio);
 router.get("/getItemByAvailable/:disponivel", getItemByAvailable);
 router.get("/getItemsCardapioByInterval/:price_min/:price_max", getItemCardapioByPriceInterval); //////////////////////////////

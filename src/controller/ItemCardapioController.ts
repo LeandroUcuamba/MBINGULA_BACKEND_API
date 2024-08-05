@@ -4,6 +4,13 @@ import { prisma } from "../database/prisma";
 export const createItemCardapio = async (req: Request, res: Response) => {
   try {
     const { name, price, categoria } = req.body;
+    const requestImage = req.files as Express.Multer.File[];
+
+    const images = requestImage.map(Image => {
+       return {
+         path: Image.filename,
+       }
+    });
 
     const isItemCardapioName = await prisma.itemCardapio.findUnique({
       where: {
@@ -18,7 +25,21 @@ export const createItemCardapio = async (req: Request, res: Response) => {
     }
 
     const itemCardapio = await prisma.itemCardapio.create({
-      data: { name, price, categoria },
+      data: { 
+        name, 
+        price, 
+        categoria,
+        Image: {
+          create: images,
+        }
+      },
+      select: {
+        id: true,
+        name: true,
+        price: true, 
+        categoria: true,
+        Image: true
+      }
     });
 
     return res.json(itemCardapio);
@@ -29,7 +50,17 @@ export const createItemCardapio = async (req: Request, res: Response) => {
 
 export const getItemCardapio = async (req: Request, res: Response) => {
   try {
-    const itemsCardapio = await prisma.itemCardapio.findMany();
+    const itemsCardapio = await prisma.itemCardapio.findMany({
+      select: {
+        id: true,
+        name: true,
+        price: true, 
+        categoria: true,
+        Image: true,
+        created_at: true,
+        updated_at: true
+      }
+    });
     return res.json(itemsCardapio);
   } catch (error) {
     return res.status(400).json(error);
@@ -51,6 +82,15 @@ export const getItemCardapioByPriceInterval = async (
           lte: max,
         },
       },
+      select: {
+        id: true,
+        name: true,
+        price: true, 
+        categoria: true,
+        Image: true,
+        created_at: true,
+        updated_at: true
+      }
     });
 
     if (!itemCardapio) {
@@ -108,6 +148,15 @@ export const getItemByAvailable = async (req: Request, res: Response) => {
           contains: disponivel,
         }
       },
+      select: {
+        id: true,
+        name: true,
+        price: true, 
+        categoria: true,
+        Image: true,
+        created_at: true,
+        updated_at: true
+      }
     });
 
     return res.status(200).json(itemCardapio);
