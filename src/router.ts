@@ -17,6 +17,8 @@ import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas } fr
 
 import uploadConfigs from './config/multer'
 import multer from "multer";
+import { createPedidoLocal, deletePedidoLocal, getAllPedidoLocal, getPedidoLocalByUserName, getPedidoLocalByUserPhone, updatePedidoLocal } from "./controller/PedidoLocal";
+import { createPedidoCasa, deletePedidoCasa, getAllPedidoCasa, getPedidoCasaByUserName, getPedidoCasaByUserPhone, updatePedidoCasa } from "./controller/PedidoCasa";
 const upload = multer(uploadConfigs);
 
 export const router = Router();
@@ -56,7 +58,6 @@ router.get("/getFuncionarioByName/:name", getFuncionarioByName);
 router.put("/update-funcionario/:id", updateFuncionario);
 
 //Item Cardapio
-
 router.post("/create-ItemCardapio", upload.array("Image"), createItemCardapio);
 router.get("/getItemsCardapio", getItemCardapio);
 router.get("/getItemByAvailable/:disponivel", getItemByAvailable);
@@ -121,3 +122,19 @@ router.put("/update-atividade/:id", updateAtividadeCasa);
 router.patch("/create-reserva/:numero", createReservaMesa);
 router.get("/getAllAvailableTable", getAllMesasDisponiveis);
 router.get("/getAllNotAvailableTable", getAllMesasJaReservadas);
+
+//Pedido Local
+router.post("/create-pedidoLocal",authMiddleware(["adm", "normal"]), createPedidoLocal);
+router.get("/getAllPedidoLocal", getAllPedidoLocal);
+router.get("/getPedidoLocalByUserName/:nome", getPedidoLocalByUserName);
+router.get("/getPedidoLocalByUserPhone/:telefone", getPedidoLocalByUserPhone);
+router.put("/updatePedidoLocal/:id", authMiddleware(["adm", "normal"]), updatePedidoLocal);
+router.delete("/deletePedidoLocal/:id", deletePedidoLocal);
+
+//Pedido Casa
+router.post("/create-pedidoCasa",authMiddleware(["adm", "normal"]), createPedidoCasa);
+router.get("/getAllPedidoCasa", getAllPedidoCasa);
+router.get("/getPedidoCasaByUserName/:nome", getPedidoCasaByUserName);
+router.get("/getPedidoCasaByUserPhone/:telefone", getPedidoCasaByUserPhone);
+router.put("/updatePedidoCasa/:id", authMiddleware(["adm", "normal"]), updatePedidoCasa);
+router.delete("/deletePedidoCasa/:id", deletePedidoCasa);

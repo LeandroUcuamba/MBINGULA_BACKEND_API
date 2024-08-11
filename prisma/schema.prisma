@@ -144,3 +144,31 @@ model Atividadecasa {
   hora      String
   descricao String
 }
+
+// Trabalhando desde o dia 09/08/2024
+
+model PedidoLocal {
+  id              String   @id @default(uuid())
+  tipoConsumo     String
+  valorTotal      Decimal
+  itemsPedido     String
+  metodoPagamento String
+  status          String
+  numeroMesa      Int
+  userName        String
+  userPhone       String
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+}
+
+model PedidoCasa {
+  id              String   @id @default(uuid())
+  valorTotal      Decimal
+  itemsPedido     String
+  metodoPagamento String
+  status          String
+  userName        String
+  userPhone       String
+  created_at      DateTime @default(now())
+  updated_at      DateTime @updatedAt
+}

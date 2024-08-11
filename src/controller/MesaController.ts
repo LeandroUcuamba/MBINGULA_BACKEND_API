@@ -17,7 +17,17 @@ export const createMesa = async (req: Request, res: Response) => {
 
 export const getAllMesas = async (req: Request, res: Response) => {
   try {
-    const mesas = await prisma.mesa.findMany();
+    const mesas = await prisma.mesa.findMany({
+      select: {
+        id: true,
+        numero: true,
+        lugares: true,
+        posicao: true,
+        statusOcupacao: true,
+        created_at: true,
+        updated_at: true
+      }
+    });
     return res.json(mesas);
   } catch (error) {
     return res.status(400).json(error);
@@ -44,6 +54,15 @@ export const getMesaByNumero = async (req: Request, res: Response) => {
       where: {
         numero: parseInt(numero),
       },
+      select: {
+        id: true,
+        numero: true,
+        lugares: true,
+        posicao: true,
+        statusOcupacao: true,
+        created_at: true,
+        updated_at: true
+      }
     });
 
     return res.status(200).json(mesa);
@@ -72,6 +91,15 @@ export const getMesaByLugares = async (req: Request, res: Response) => {
       where: {
         lugares: parseInt(lugares),
       },
+      select: {
+        id: true,
+        numero: true,
+        lugares: true,
+        posicao: true,
+        statusOcupacao: true,
+        created_at: true,
+        updated_at: true
+      }
     });
 
     return res.status(200).json(mesa);
