@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { sign } from "jsonwebtoken";
 import { prisma } from "../database/prisma";
-const logger = require('pino')();
+import logger from '../../utils/logger';
 
 export const signIn = async (req: Request, res: Response) => {
   try {
@@ -50,7 +50,7 @@ export const signIn = async (req: Request, res: Response) => {
       }
     );
 
-    logger.info(`O utilizador ${user.name} acessou o sistema!`)
+    logger.info(`O utilizador com o nome: ${user.name} e contacto: ${user.phone} acessou o sistema!`)
 
     return res.status(200).json({ token });
   } catch (error) {
