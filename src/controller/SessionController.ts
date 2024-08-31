@@ -50,7 +50,12 @@ export const signIn = async (req: Request, res: Response) => {
       }
     );
 
-    logger.info(`O utilizador com o nome: ${user.name} e contacto: ${user.phone} acessou o sistema!`)
+  logger.info({
+    level: 'info',
+    message: "O utilizador logou!",
+    nome_utilizador: `${user.name}`,
+    numero_telefone: `${user.phone}`
+  })
 
     return res.status(200).json({ token });
   } catch (error) {
