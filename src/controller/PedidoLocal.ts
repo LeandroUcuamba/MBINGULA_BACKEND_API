@@ -67,7 +67,6 @@ export const getAllPedidoLocal = async (req: Request, res: Response) => {
   }
 };
 
-//Only for change field "status";
 export const updatePedidoLocal = async (req: Request, res: Response) => {
   try {
     const pedidoLocalId = req.params.id;

@@ -49,7 +49,6 @@ export const getAllPedidoCasa = async (req: Request, res: Response) => {
   }
 };
 
-//Only for change field "status";
 export const updatePedidoCasa = async (req: Request, res: Response) => {
   try {
     const pedidoCasaId = req.params.id;
