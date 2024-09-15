@@ -194,18 +194,6 @@ export const updateFuncionario = async (req: Request, res: Response) => {
       sectorId,
     } = req.body;
 
-    const isBilheteIdentidade = await prisma.funcionario.findUnique({
-      where: {
-        bilheteidentidade: bilheteidentidade,
-      },
-    });
-
-    if (isBilheteIdentidade) {
-      return res.status(400).json({
-        message: "Este bilhete identidade pertence a outro funcionário",
-      });
-    }
-
     const isTelefone = await prisma.funcionario.findUnique({
       where: {
         telefone: telefone,
