@@ -181,6 +181,40 @@ export const getFuncionarioByName = async (req: Request, res: Response) => {
   }
 };
 
+export const getFuncionarioByPhone = async (req: Request, res: Response) => {
+  try {
+    const funcionarioPhone = req.params.telefone;
+
+    const funcionario = await prisma.funcionario.findUnique({
+      where: {
+        telefone: funcionarioPhone,
+      },
+      select: {
+        id: true,
+        name: true,
+        morada: true,
+        bilheteidentidade: true,
+        telefone: true,
+        cargo: true,
+        salario: true,
+        Sector: {
+          select: {
+            name: true,
+          },
+        },
+      },
+    });
+
+    if (!funcionario) {
+      return res.status(204);
+    }
+
+    return res.status(200).json(funcionario);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const updateFuncionario = async (req: Request, res: Response) => {
   try {
     const funcionarioId = req.params.id;
@@ -226,3 +260,4 @@ export const updateFuncionario = async (req: Request, res: Response) => {
     return res.status(400).json(error);
   }
 };
+

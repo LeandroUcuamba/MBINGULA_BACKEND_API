@@ -4,7 +4,7 @@ import { createUser, deleteManyUser, deleteUser, getAllUser, getUser, getUserByN
 import { signIn } from "./controller/SessionController";
 import { authMiddleware } from "./middleware/AuthMiddleware";
 import { createSector, deleteSector, getAllSectores, updateSector } from "./controller/SectorController";
-import { createFuncionario, deleteFuncionario, deleteManyFuncionario, getAllFuncionarios, getFuncionario, getFuncionarioByName, updateFuncionario } from "./controller/FuncionarioController";
+import { createFuncionario, deleteFuncionario, deleteManyFuncionario, getAllFuncionarios, getFuncionario, getFuncionarioByName, getFuncionarioByPhone, updateFuncionario } from "./controller/FuncionarioController";
 import { createItemCardapio, deleteItemCardapio, getItemByAvailable, getItemCardapio, getItemCardapioByPriceInterval, updateItemCardapio } from "./controller/ItemCardapioController";
 import { createAvaliacao, deleteAllAvaliacao, deleteAvaliacao, getAllAvaliacao, updateAvaliacao } from "./controller/AvaliacaoController";
 import { createServico, deleteAllServico, deleteServico, getAllServico, updateServico } from "./controller/ServicoRestauranteController";
@@ -55,6 +55,7 @@ router.delete("/delete-funcionarios", deleteManyFuncionario);
 router.get("/getAllFuncionarios", getAllFuncionarios);
 router.get("/get-funcionario/:id", getFuncionario);
 router.get("/getFuncionarioByName/:name", getFuncionarioByName);
+router.get("/getFuncionarioByPhone/:telefone", getFuncionarioByPhone);
 router.put("/update-funcionario/:id", updateFuncionario);
 
 //Item Cardapio
