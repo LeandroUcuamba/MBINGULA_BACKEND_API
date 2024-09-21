@@ -91,6 +91,8 @@ export const getProduto = async (req: Request, res: Response) => {
             telefone: true,
           },
         },
+        created_at: true,
+        updated_at: true
       },
     });
 
@@ -125,6 +127,8 @@ export const getProdutoByName = async (req: Request, res: Response) => {
             telefone: true,
           },
         },
+        created_at: true,
+        updated_at: true
       },
     });
 
