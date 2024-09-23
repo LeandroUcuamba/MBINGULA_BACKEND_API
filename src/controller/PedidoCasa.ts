@@ -125,6 +125,26 @@ export const getPedidoCasaByUserName = async (req: Request, res: Response) => {
   }
 };
 
+export const getPedidoCasaById = async (req: Request, res: Response) => {
+  try {
+    const pedidoCasaId = req.params.id;
+
+    const pedidoCasa = await prisma.pedidoCasa.findMany({
+      where: {
+        id: pedidoCasaId
+      },
+    });
+
+    if (!pedidoCasa) {
+      return res.status(204);
+    }
+
+    return res.status(200).json(pedidoCasa);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const getPedidoCasaByUserPhone = async (req: Request, res: Response) => {
   try {
     const userPhone = req.params.userPhone;

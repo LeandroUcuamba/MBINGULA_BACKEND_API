@@ -17,8 +17,8 @@ import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas } fr
 
 import uploadConfigs from './config/multer'
 import multer from "multer";
-import { createPedidoLocal, deletePedidoLocal, getAllPedidoLocal, getPedidoLocalByUserName, getPedidoLocalByUserPhone, updatePedidoLocal } from "./controller/PedidoLocal";
-import { createPedidoCasa, deletePedidoCasa, getAllPedidoCasa, getPedidoCasaByUserName, getPedidoCasaByUserPhone, updatePedidoCasa } from "./controller/PedidoCasa";
+import { createPedidoLocal, deletePedidoLocal, getAllPedidoLocal, getPedidoLocalByUserName, getPedidoLocalById, getPedidoLocalByUserPhone, updatePedidoLocal } from "./controller/PedidoLocal";
+import { createPedidoCasa, deletePedidoCasa, getAllPedidoCasa, getPedidoCasaByUserName, getPedidoCasaById, getPedidoCasaByUserPhone, updatePedidoCasa } from "./controller/PedidoCasa";
 const upload = multer(uploadConfigs);
 
 export const router = Router();
@@ -136,6 +136,7 @@ router.post("/create-pedidoLocal",authMiddleware(["adm", "normal"]), createPedid
 router.get("/getAllPedidoLocal", getAllPedidoLocal);
 router.get("/getPedidoLocalByUserName/:nome", getPedidoLocalByUserName);
 router.get("/getPedidoLocalByUserPhone/:telefone", getPedidoLocalByUserPhone);
+router.get("/getPedidoLocalById/:id", getPedidoLocalById);
 router.put("/updatePedidoLocal/:id", authMiddleware(["adm", "normal"]), updatePedidoLocal);
 router.delete("/deletePedidoLocal/:id", deletePedidoLocal);
 
@@ -144,5 +145,6 @@ router.post("/create-pedidoCasa",authMiddleware(["adm", "normal"]), createPedido
 router.get("/getAllPedidoCasa", getAllPedidoCasa);
 router.get("/getPedidoCasaByUserName/:nome", getPedidoCasaByUserName);
 router.get("/getPedidoCasaByUserPhone/:telefone", getPedidoCasaByUserPhone);
+router.get("/getPedidoCasaById/:id", getPedidoCasaById);
 router.put("/updatePedidoCasa/:id", authMiddleware(["adm", "normal"]), updatePedidoCasa);
 router.delete("/deletePedidoCasa/:id", deletePedidoCasa);

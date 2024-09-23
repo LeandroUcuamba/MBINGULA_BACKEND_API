@@ -147,6 +147,26 @@ export const getPedidoLocalByUserName = async (req: Request, res: Response) => {
   }
 };
 
+export const getPedidoLocalById = async (req: Request, res: Response) => {
+  try {
+    const pedidoLocalId = req.params.id;
+
+    const pedidoLocal = await prisma.pedidoLocal.findMany({
+      where: {
+        id: pedidoLocalId
+      },
+    });
+
+    if (!pedidoLocal) {
+      return res.status(204);
+    }
+
+    return res.status(200).json(pedidoLocal);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const getPedidoLocalByUserPhone = async (req: Request, res: Response) => {
   try {
     const userPhone = req.params.userPhone;
