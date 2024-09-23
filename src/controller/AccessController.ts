@@ -24,6 +24,32 @@ export const getAllAccessess = async (req: Request, res: Response) => {
   }
 };
 
+export const getAccessById = async (req: Request, res: Response) => {
+  try {
+    const accessId = req.params.id;
+
+    const access = await prisma.access.findUnique({
+      where: {
+        id: accessId,
+      },
+      select: {
+        id: true,
+        name: true,
+        created_at: true,
+        updated_at: true,
+      },
+    });
+
+    if (!access) {
+      return res.status(204);
+    }
+
+    return res.status(200).json(access);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const deleteAccess = async (req: Request, res: Response) => {
   try {
     const accessId = req.params.id;

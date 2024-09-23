@@ -137,6 +137,32 @@ export const updateItemCardapio = async (req: Request, res: Response) => {
   }
 };
 
+export const getItemById = async (req: Request, res: Response) => {
+  try {
+
+    const itemCardapioId = req.params.id;
+
+    const itemCardapio = await prisma.itemCardapio.findMany({
+      where: {
+          id: itemCardapioId,
+      },
+      select: {
+        id: true,
+        name: true,
+        price: true, 
+        categoria: true,
+        Image: true,
+        created_at: true,
+        updated_at: true
+      }
+    });
+
+    return res.status(200).json(itemCardapio);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const getItemByAvailable = async (req: Request, res: Response) => {
   try {
 

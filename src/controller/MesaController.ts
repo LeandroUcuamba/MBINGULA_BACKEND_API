@@ -71,6 +71,31 @@ export const getMesaByNumero = async (req: Request, res: Response) => {
   }
 };
 
+export const getMesaById = async (req: Request, res: Response) => {
+  try {
+    const mesaId = req.params.id;
+
+    const mesa = await prisma.mesa.findUnique({
+      where: {
+        id: mesaId,
+      },
+      select: {
+        id: true,
+        numero: true,
+        lugares: true,
+        posicao: true,
+        statusOcupacao: true,
+        created_at: true,
+        updated_at: true
+      }
+    });
+
+    return res.status(200).json(mesa);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const getMesaByLugares = async (req: Request, res: Response) => {
   try {
     const lugares = req.params.lugares;

@@ -24,6 +24,27 @@ export const getAllServico = async (req: Request, res: Response) => {
   }
 };
 
+export const getServicoById = async (req: Request, res: Response) => {
+  try {
+    const servicoId = req.params.id;
+
+    const mesa = await prisma.servicorestaurante.findUnique({
+      where: {
+        id: servicoId,
+      },
+      select: {
+        id: true,
+        tipo: true,
+        descricao: true
+      }
+    });
+
+    return res.status(200).json(mesa);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const deleteServico = async (req: Request, res: Response) => {
   try {
     const servicoId = req.params.id;
