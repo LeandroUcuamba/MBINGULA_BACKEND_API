@@ -24,6 +24,26 @@ export const getAllAtividadesCasa = async (req: Request, res: Response) => {
   }
 };
 
+export const getAtividadeCasa = async (req: Request, res: Response) => {
+  try {
+    const atividadeCasaId = req.params.id;
+
+    const atividadecasa = await prisma.atividadecasa.findUnique({
+      where: {
+        id: atividadeCasaId,
+      },
+    });
+
+    if (!atividadecasa) {
+      return res.status(204);
+    }
+
+    return res.status(200).json(atividadecasa);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const deleteAtividadeCasa = async (req: Request, res: Response) => {
   try {
     const atividadecasaId = req.params.id;

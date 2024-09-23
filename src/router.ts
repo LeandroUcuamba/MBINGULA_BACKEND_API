@@ -12,7 +12,7 @@ import { createFornecedor, deleteFornecedor, getAllFornecedor, getFornecedor, ge
 import { createProduto, deleteProduto, getAllProdutos, getProduto, getProdutoByName, updateProduto } from "./controller/ProdutoController";
 import { createEstoque, deleteEstoque, getAllEstoques, getEstoque, getEstoqueByProdutoName, updateEstoque } from "./controller/EstoqueController";
 import { createMesa, deleteMesa, getAllMesas, getMesaByLugares, getMesaByNumero, updateMesa } from "./controller/MesaController";
-import { createAtividadeCasa, deleteAtividadeCasa, getAllAtividadesCasa, updateAtividadeCasa } from "./controller/AtividadecasaController";
+import { createAtividadeCasa, deleteAtividadeCasa, getAllAtividadesCasa, updateAtividadeCasa, getAtividadeCasa } from "./controller/AtividadecasaController";
 import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas } from "./controller/ReservaMesaController";
 
 import uploadConfigs from './config/multer'
@@ -117,6 +117,7 @@ router.put("/update-mesa/:id", updateMesa);
 //Atividades de casa
 router.post("/create-atividade", createAtividadeCasa);
 router.get("/getAllAtividades", getAllAtividadesCasa);
+router.get("/getAtividadeById/:id", getAtividadeCasa);
 router.delete("/delete-atividade/:id", deleteAtividadeCasa);
 router.put("/update-atividade/:id", updateAtividadeCasa);
 
