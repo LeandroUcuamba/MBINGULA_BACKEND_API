@@ -3,7 +3,7 @@ import { createAccess, deleteAccess, getAllAccessess } from "./controller/Access
 import { createUser, deleteManyUser, deleteUser, getAllUser, getUser, getUserByName, getUserIsLogged, updateUser, updateUserIsLogged } from "./controller/UserController";
 import { signIn } from "./controller/SessionController";
 import { authMiddleware } from "./middleware/AuthMiddleware";
-import { createSector, deleteSector, getAllSectores, updateSector } from "./controller/SectorController";
+import { createSector, deleteSector, getAllSectores, getSector, updateSector } from "./controller/SectorController";
 import { createFuncionario, deleteFuncionario, deleteManyFuncionario, getAllFuncionarios, getFuncionario, getFuncionarioByName, getFuncionarioByPhone, getFuncionarioByBI, updateFuncionario } from "./controller/FuncionarioController";
 import { createItemCardapio, deleteItemCardapio, getItemByAvailable, getItemCardapio, getItemCardapioByPriceInterval, updateItemCardapio } from "./controller/ItemCardapioController";
 import { createAvaliacao, deleteAllAvaliacao, deleteAvaliacao, getAllAvaliacao, updateAvaliacao } from "./controller/AvaliacaoController";
@@ -45,6 +45,7 @@ router.post("/sign-in", signIn);
 //Sector
 router.post("/create-sector", createSector);
 router.get("/sectores", getAllSectores);
+router.get("/sectorById/:id", getSector);
 router.delete("/delete-sector/:id", deleteSector);
 router.put("/update-sector/:id", updateSector);
 

@@ -24,6 +24,31 @@ export const getAllSectores = async (req: Request, res: Response) => {
   }
 };
 
+export const getSector = async (req: Request, res: Response) => {
+  try {
+    const sectorId = req.params.id;
+
+    const sector = await prisma.sector.findUnique({
+      where: {
+        id: sectorId,
+      },
+      select: {
+        id: true,
+        name: true,
+        descricao: true,
+      },
+    });
+
+    if (!sector) {
+      return res.status(204);
+    }
+
+    return res.status(200).json(sector);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const deleteSector = async (req: Request, res: Response) => {
   try {
     const sectorId = req.params.id;
