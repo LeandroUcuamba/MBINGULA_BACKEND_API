@@ -142,32 +142,6 @@ describe("Backend Mbingula - Testes Unitarios e de Integração", () => {
         });
     });
 
-    describe("Teste de integração e End-to-End - Tipo de acesso (permissão)", () => {
-        test("Criar um acesso - com sucesso", async () => {
-            const response = await request(app).post("/create-access").send({
-                name: "Teste aplicação",
-            });
-            expect(response.statusCode).toBe(200);
-            await clearAccessDataTest(await response.body.id);
-        });
-
-        test("Deletar um acesso - com sucesso", async () => {
-            const responseCreate = await request(app).post("/create-access").send({
-                name: "Teste aplicação",
-            });
-            const saveId = await responseCreate.body.id;
-
-            const response = await request(app).delete(`/delete-access/${saveId}`);
-            expect(response.statusCode).toBe(200);
-            expect(await response.body.message).toBe("Acesso deletado!")
-        });
-
-        test("Listar todos os acessos - com sucesso", async () => {
-            const response = await request(app).get(`/accessess`);
-            expect(response.statusCode).toBe(200);
-        });
-    });
-
     describe("Teste de integração e End-to-End - sector", () => {
         test("Criar um sector - com sucesso", async () => {
             const response = await request(app).post("/create-sector").send({
