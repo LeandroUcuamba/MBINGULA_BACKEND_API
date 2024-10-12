@@ -56,6 +56,7 @@ export const getItemCardapio = async (req: Request, res: Response) => {
         name: true,
         price: true, 
         categoria: true,
+        disponivel: true,
         Image: true,
         created_at: true,
         updated_at: true
@@ -87,6 +88,7 @@ export const getItemCardapioByPriceInterval = async (
         name: true,
         price: true, 
         categoria: true,
+        disponivel: true,
         Image: true,
         created_at: true,
         updated_at: true
@@ -106,6 +108,12 @@ export const getItemCardapioByPriceInterval = async (
 export const deleteItemCardapio = async (req: Request, res: Response) => {
   try {
     const itemCardapioId = req.params.id;
+
+    await prisma.image.deleteMany({
+      where: {
+        itemCardapioId: itemCardapioId,
+      },
+    });
 
     await prisma.itemCardapio.delete({
       where: {
@@ -151,6 +159,7 @@ export const getItemById = async (req: Request, res: Response) => {
         name: true,
         price: true, 
         categoria: true,
+        disponivel: true,
         Image: true,
         created_at: true,
         updated_at: true
@@ -179,6 +188,7 @@ export const getItemByAvailable = async (req: Request, res: Response) => {
         name: true,
         price: true, 
         categoria: true,
+        disponivel: true,
         Image: true,
         created_at: true,
         updated_at: true
