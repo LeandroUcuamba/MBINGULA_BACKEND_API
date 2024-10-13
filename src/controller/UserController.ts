@@ -169,6 +169,47 @@ export const updateUser = async (req: Request, res: Response) => {
   }
 };
 
+export const updateUserAccess = async (req: Request, res: Response) => {
+  try {
+    const userId = req.params.id;
+    const { accessName } = req.body;
+
+    const isAccessName = await prisma.access.findUnique({
+      where: {
+        name: accessName,
+      },
+    });
+
+    if (!isAccessName) {
+      return res
+        .status(400)
+        .json({ message: "Este nivel de acesso não existe" });
+    }
+
+    await prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: {
+        userAccess: {
+          deleteMany: {},
+          create: {
+            Access: {
+              connect: {
+                name: accessName,
+              },
+            },
+          },
+        },
+      },
+    });
+
+    return res.json({ message: "Usuário Atualizado" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const getAllUser = async (req: Request, res: Response) => {
   try {
     const users = await prisma.user.findMany();

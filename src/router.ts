@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAllAccessess, getAccessById } from "./controller/AccessController";
-import { createUser, deleteManyUser, deleteUser, getAllUser, getUser, getUserByName, getUserIsLogged, updateUser, updateUserIsLogged } from "./controller/UserController";
+import { createUser, deleteManyUser, deleteUser, getAllUser, getUser, getUserByName, getUserIsLogged, updateUser, updateUserAccess, updateUserIsLogged } from "./controller/UserController";
 import { signIn } from "./controller/SessionController";
 import { authMiddleware } from "./middleware/AuthMiddleware";
 import { createSector, deleteSector, getAllSectores, getSector, updateSector } from "./controller/SectorController";
@@ -32,6 +32,7 @@ router.get("/getLoginUser", authMiddleware(["adm"]), getUserIsLogged);
 router.get("/get-user/:id", getUser);
 router.get("/getUserByName/:name", getUserByName);
 router.put("/update-user/:id", updateUser);
+router.put("/update-userAccess/:id", updateUserAccess);
 router.put("/update-user", authMiddleware(["adm", "normal"]), updateUserIsLogged);
 
 //Acesso - roles
