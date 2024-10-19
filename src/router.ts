@@ -133,19 +133,19 @@ router.get("/getAllNotAvailableTable", getAllMesasJaReservadas);
 router.patch("/makeMesaAvailable-mesa/:id", makeMesaAvailable);
 
 //Pedido Local
-router.post("/create-pedidoLocal",authMiddleware(["adm", "normal"]), createPedidoLocal);
+router.post("/create-pedidoLocal", createPedidoLocal);
 router.get("/getAllPedidoLocal", getAllPedidoLocal);
 router.get("/getPedidoLocalByUserName/:nome", getPedidoLocalByUserName);
 router.get("/getPedidoLocalByUserPhone/:telefone", getPedidoLocalByUserPhone);
 router.get("/getPedidoLocalById/:id", getPedidoLocalById);
-router.put("/updatePedidoLocal/:id", authMiddleware(["adm", "normal"]), updatePedidoLocal);
+router.put("/updatePedidoLocal/:id", updatePedidoLocal);
 router.delete("/deletePedidoLocal/:id", deletePedidoLocal);
 
 //Pedido Casa
-router.post("/create-pedidoCasa",authMiddleware(["adm", "normal"]), createPedidoCasa);
+router.post("/create-pedidoCasa", createPedidoCasa);
 router.get("/getAllPedidoCasa", getAllPedidoCasa);
 router.get("/getPedidoCasaByUserName/:nome", getPedidoCasaByUserName);
 router.get("/getPedidoCasaByUserPhone/:telefone", getPedidoCasaByUserPhone);
 router.get("/getPedidoCasaById/:id", getPedidoCasaById);
-router.put("/updatePedidoCasa/:id", authMiddleware(["adm", "normal"]), updatePedidoCasa);
+router.put("/updatePedidoCasa/:id", updatePedidoCasa);
 router.delete("/deletePedidoCasa/:id", deletePedidoCasa);

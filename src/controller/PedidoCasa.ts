@@ -7,25 +7,18 @@ export const createPedidoCasa = async (req: Request, res: Response) => {
         valorTotal,
         itemsPedido,
         metodoPagamento,
-        status
+        userName,
+        userPhone
       } = req.body;
 
-      const { id } = req.user;
-
-      const user = await prisma.user.findUnique({
-        where: {
-          id,
-        },
-      });
-  
       const pedidoCasa = await prisma.pedidoCasa.create({
         data: {
            valorTotal,
            itemsPedido,
            metodoPagamento,
-           status,
-           userName: user!.name,
-           userPhone: user!.phone!
+           status: 'em preparação',
+           userName,
+           userPhone
         },
       });
   

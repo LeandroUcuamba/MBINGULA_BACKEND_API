@@ -8,8 +8,9 @@ export const createPedidoLocal = async (req: Request, res: Response) => {
         valorTotal,
         itemsPedido,
         metodoPagamento,
-        status,
         numeroMesa,
+        userName,
+        userPhone
       } = req.body;
 
       const numero = numeroMesa;
@@ -25,14 +26,6 @@ export const createPedidoLocal = async (req: Request, res: Response) => {
           message: "Não existe uma mesa com este número!",
         });
       }
-
-      const { id } = req.user;
-
-      const user = await prisma.user.findUnique({
-        where: {
-          id,
-        },
-      });
   
       const pedidoLocal = await prisma.pedidoLocal.create({
         data: {
@@ -40,10 +33,10 @@ export const createPedidoLocal = async (req: Request, res: Response) => {
           valorTotal,
           itemsPedido,
           metodoPagamento,
-          status,
+          status: 'em preparação',
           numeroMesa,
-          userName: user!.name,
-          userPhone: user!.phone!
+          userName,
+          userPhone,
         },
       });
   
