@@ -69,16 +69,10 @@ export const updatePedidoLocal = async (req: Request, res: Response) => {
       itemsPedido,
       metodoPagamento,
       status,
-      numeroMesa
+      numeroMesa,
+      userName,
+      userPhone
     } = req.body;
-
-    const { id } = req.user;
-
-    const user = await prisma.user.findUnique({
-      where: {
-        id,
-      },
-    });
 
     await prisma.pedidoLocal.update({
       where: {
@@ -91,8 +85,8 @@ export const updatePedidoLocal = async (req: Request, res: Response) => {
         metodoPagamento,
         status,
         numeroMesa,
-        userName: user!.name,
-        userPhone: user!.phone!
+        userName,
+        userPhone,
       },
     });
 

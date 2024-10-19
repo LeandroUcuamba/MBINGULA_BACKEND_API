@@ -49,16 +49,10 @@ export const updatePedidoCasa = async (req: Request, res: Response) => {
         valorTotal,
         itemsPedido,
         metodoPagamento,
-        status
+        status,
+        userName,
+        userPhone
     } = req.body;
-
-    const { id } = req.user;
-
-    const user = await prisma.user.findUnique({
-      where: {
-        id,
-      },
-    });
 
     await prisma.pedidoCasa.update({
       where: {
@@ -69,8 +63,8 @@ export const updatePedidoCasa = async (req: Request, res: Response) => {
         itemsPedido,
         metodoPagamento,
         status,
-        userName: user!.name,
-        userPhone: user!.phone!
+        userName,
+        userPhone
       },
     });
 
