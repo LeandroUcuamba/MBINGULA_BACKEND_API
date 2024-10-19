@@ -157,6 +157,7 @@ model PedidoLocal {
   numeroMesa      Int
   userName        String
   userPhone       String
+  numeroPedido    Int      @unique @default(autoincrement())
   created_at      DateTime @default(now())
   updated_at      DateTime @updatedAt
 }
@@ -169,6 +170,7 @@ model PedidoCasa {
   status          String
   userName        String
   userPhone       String
+  numeroPedido    Int      @unique @default(autoincrement())
   created_at      DateTime @default(now())
   updated_at      DateTime @updatedAt
 }
