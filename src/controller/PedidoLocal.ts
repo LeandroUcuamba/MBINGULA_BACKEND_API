@@ -125,8 +125,8 @@ export const getPedidoLocalByUserName = async (req: Request, res: Response) => {
       },
     });
 
-    if (!pedidoLocal || pedidoLocal.length === 0) {
-      return res.status(204).send(); // Retorna 204 se não houver resultados
+    if (!pedidoLocal) {
+      return res.status(204);
     }
 
     return res.status(200).json(pedidoLocal);
