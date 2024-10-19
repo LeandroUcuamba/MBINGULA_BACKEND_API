@@ -13,7 +13,7 @@ import { createProduto, deleteProduto, getAllProdutos, getProduto, getProdutoByN
 import { createEstoque, deleteEstoque, getAllEstoques, getEstoque, getEstoqueByProdutoName, updateEstoque } from "./controller/EstoqueController";
 import { createMesa, deleteMesa, getAllMesas, getMesaById, getMesaByLugares, getMesaByNumero, updateMesa } from "./controller/MesaController";
 import { createAtividadeCasa, deleteAtividadeCasa, getAllAtividadesCasa, updateAtividadeCasa, getAtividadeCasa } from "./controller/AtividadecasaController";
-import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas } from "./controller/ReservaMesaController";
+import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas, makeMesaAvailable } from "./controller/ReservaMesaController";
 
 import uploadConfigs from './config/multer'
 import multer from "multer";
@@ -129,6 +129,7 @@ router.put("/update-atividade/:id", updateAtividadeCasa);
 router.patch("/create-reserva/:numero", createReservaMesa);
 router.get("/getAllAvailableTable", getAllMesasDisponiveis);
 router.get("/getAllNotAvailableTable", getAllMesasJaReservadas);
+router.patch("/makeMesaAvailable-mesa/:id", makeMesaAvailable);
 
 //Pedido Local
 router.post("/create-pedidoLocal",authMiddleware(["adm", "normal"]), createPedidoLocal);

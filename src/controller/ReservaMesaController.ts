@@ -66,3 +66,22 @@ export const getAllMesasJaReservadas = async (req: Request, res: Response) => {
       return res.status(400).json(error);
     }
 };
+
+export const makeMesaAvailable = async (req: Request, res: Response) => {
+  try {
+    const mesaId = req.params.id;
+
+    await prisma.mesa.update({
+      where: {
+        id: mesaId,
+      },
+      data: {
+         statusOcupacao: "Disponível",
+      },
+    });
+
+    return res.json({ message: "Mesa disponibilizada com sucesso!" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
