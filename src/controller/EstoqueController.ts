@@ -135,6 +135,7 @@ export const getEstoqueByProdutoName = async (req: Request, res: Response) => {
         Produto: {
           nome: {
             contains: produtoNome,
+            mode: 'insensitive'
           },
         },
       },

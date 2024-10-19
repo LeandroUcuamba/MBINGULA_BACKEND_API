@@ -46,7 +46,7 @@ export const signIn = async (req: Request, res: Response) => {
       MY_SECRET_KEY,
       {
         algorithm: "HS256",
-        expiresIn: "30m",
+        expiresIn: "15m",
       }
     );
 

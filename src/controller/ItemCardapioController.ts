@@ -181,6 +181,7 @@ export const getItemByAvailable = async (req: Request, res: Response) => {
       where: {
         disponivel: {
           contains: disponivel,
+          mode: 'insensitive'
         }
       },
       select: {
@@ -210,6 +211,7 @@ export const getItemByCategoria = async (req: Request, res: Response) => {
       where: {
         categoria: {
           contains: categoria,
+          mode: 'insensitive'
         }
       },
       select: {

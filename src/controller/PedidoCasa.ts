@@ -98,6 +98,7 @@ export const getPedidoCasaByUserName = async (req: Request, res: Response) => {
       where: {
         userName: {
           contains: userName,
+          mode: 'insensitive'
         },
       },
     });

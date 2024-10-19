@@ -302,6 +302,7 @@ export const getUserByName = async (req: Request, res: Response) => {
       where: {
         name: {
           contains: userName,
+          mode: 'insensitive'
         },
       },
       select: {

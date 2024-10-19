@@ -119,13 +119,14 @@ export const getPedidoLocalByUserName = async (req: Request, res: Response) => {
     const pedidoLocal = await prisma.pedidoLocal.findMany({
       where: {
         userName: {
-          contains: userName,
+          equals: userName,
+          mode: 'insensitive',
         },
       },
     });
 
-    if (!pedidoLocal) {
-      return res.status(204);
+    if (!pedidoLocal || pedidoLocal.length === 0) {
+      return res.status(204).send(); // Retorna 204 se não houver resultados
     }
 
     return res.status(200).json(pedidoLocal);

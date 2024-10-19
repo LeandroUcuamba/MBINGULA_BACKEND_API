@@ -114,6 +114,7 @@ export const getProdutoByName = async (req: Request, res: Response) => {
       where: {
         nome: {
           contains: produtoNome,
+          mode: 'insensitive'
         },
       },
       select: {

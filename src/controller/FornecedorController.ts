@@ -77,6 +77,7 @@ export const getFornecedorByName = async (req: Request, res: Response) => {
       where: {
         nome: {
           contains: fornecedorNome,
+          mode: 'insensitive'
         },
       },
     });

@@ -153,6 +153,7 @@ export const getFuncionarioByName = async (req: Request, res: Response) => {
       where: {
         name: {
           contains: funcionarioName,
+          mode: 'insensitive'
         },
       },
       select: {
