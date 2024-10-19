@@ -200,3 +200,32 @@ export const getItemByAvailable = async (req: Request, res: Response) => {
     return res.status(400).json(error);
   }
 };
+
+export const getItemByCategoria = async (req: Request, res: Response) => {
+  try {
+
+    const categoria = req.params.categoria;
+
+    const itemCardapio = await prisma.itemCardapio.findMany({
+      where: {
+        categoria: {
+          contains: categoria,
+        }
+      },
+      select: {
+        id: true,
+        name: true,
+        price: true, 
+        categoria: true,
+        disponivel: true,
+        Image: true,
+        created_at: true,
+        updated_at: true
+      }
+    });
+
+    return res.status(200).json(itemCardapio);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
