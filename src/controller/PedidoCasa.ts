@@ -74,6 +74,26 @@ export const updatePedidoCasa = async (req: Request, res: Response) => {
   }
 };
 
+export const updateStatusPedidoCasa = async (req: Request, res: Response) => {
+  try {
+    const pedidoCasaId = req.params.id;
+    const { status } = req.body;
+
+    await prisma.pedidoCasa.update({
+      where: {
+        id: pedidoCasaId,
+      },
+      data: {
+        status
+      },
+    });
+
+    return res.json({ message: "Status do pedido atualizado com sucesso!" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const deletePedidoCasa = async (req: Request, res: Response) => {
     try {
       const pedidoCasaId = req.params.id;

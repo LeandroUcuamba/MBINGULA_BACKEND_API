@@ -17,8 +17,8 @@ import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas, mak
 
 import uploadConfigs from './config/multer'
 import multer from "multer";
-import { createPedidoLocal, deletePedidoLocal, getAllPedidoLocal, getPedidoLocalByUserName, getPedidoLocalById, getPedidoLocalByUserPhone, updatePedidoLocal } from "./controller/PedidoLocal";
-import { createPedidoCasa, deletePedidoCasa, getAllPedidoCasa, getPedidoCasaByUserName, getPedidoCasaById, getPedidoCasaByUserPhone, updatePedidoCasa } from "./controller/PedidoCasa";
+import { createPedidoLocal, deletePedidoLocal, getAllPedidoLocal, getPedidoLocalByUserName, getPedidoLocalById, getPedidoLocalByUserPhone, updatePedidoLocal, updateStatusPedidoLocal } from "./controller/PedidoLocal";
+import { createPedidoCasa, deletePedidoCasa, getAllPedidoCasa, getPedidoCasaByUserName, getPedidoCasaById, getPedidoCasaByUserPhone, updatePedidoCasa, updateStatusPedidoCasa } from "./controller/PedidoCasa";
 const upload = multer(uploadConfigs);
 
 export const router = Router();
@@ -139,6 +139,7 @@ router.get("/getPedidoLocalByUserName/:nome", getPedidoLocalByUserName);
 router.get("/getPedidoLocalByUserPhone/:telefone", getPedidoLocalByUserPhone);
 router.get("/getPedidoLocalById/:id", getPedidoLocalById);
 router.put("/updatePedidoLocal/:id", updatePedidoLocal);
+router.patch("/updateStatusPedidoLocal/:id", updateStatusPedidoLocal);
 router.delete("/deletePedidoLocal/:id", deletePedidoLocal);
 
 //Pedido Casa
@@ -148,4 +149,5 @@ router.get("/getPedidoCasaByUserName/:nome", getPedidoCasaByUserName);
 router.get("/getPedidoCasaByUserPhone/:telefone", getPedidoCasaByUserPhone);
 router.get("/getPedidoCasaById/:id", getPedidoCasaById);
 router.put("/updatePedidoCasa/:id", updatePedidoCasa);
+router.patch("/updateStatusPedidoCasa/:id", updateStatusPedidoCasa);
 router.delete("/deletePedidoCasa/:id", deletePedidoCasa);

@@ -96,6 +96,26 @@ export const updatePedidoLocal = async (req: Request, res: Response) => {
   }
 };
 
+export const updateStatusPedidoLocal = async (req: Request, res: Response) => {
+  try {
+    const pedidoLocalId = req.params.id;
+    const { status } = req.body;
+
+    await prisma.pedidoLocal.update({
+      where: {
+        id: pedidoLocalId,
+      },
+      data: {
+        status
+      },
+    });
+
+    return res.json({ message: "Status do pedido atualizado com sucesso!" });
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+};
+
 export const deletePedidoLocal = async (req: Request, res: Response) => {
   try {
     const pedidoLocalId = req.params.id;
