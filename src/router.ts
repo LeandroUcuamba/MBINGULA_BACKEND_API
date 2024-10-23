@@ -141,13 +141,3 @@ router.get("/getPedidoLocalById/:id", getPedidoLocalById);
 router.put("/updatePedidoLocal/:id", updatePedidoLocal);
 router.patch("/updateStatusPedidoLocal/:id", updateStatusPedidoLocal);
 router.delete("/deletePedidoLocal/:id", deletePedidoLocal);
-
-//Pedido Casa
-router.post("/create-pedidoCasa", createPedidoCasa);
-router.get("/getAllPedidoCasa", getAllPedidoCasa);
-router.get("/getPedidoCasaByUserName/:nome", getPedidoCasaByUserName);
-router.get("/getPedidoCasaByUserPhone/:telefone", getPedidoCasaByUserPhone);
-router.get("/getPedidoCasaById/:id", getPedidoCasaById);
-router.put("/updatePedidoCasa/:id", updatePedidoCasa);
-router.patch("/updateStatusPedidoCasa/:id", updateStatusPedidoCasa);
-router.delete("/deletePedidoCasa/:id", deletePedidoCasa);
