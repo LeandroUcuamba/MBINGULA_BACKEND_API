@@ -1,3 +1,100 @@
 [
-
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 21:16:44"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 21:25:34"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 21:34:39"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 21:40:56"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 21:48:23"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 21:51:17"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 22:00:42"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 22:03:35"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Leandro Ucuamba",
+    "numero_telefone": "942583628",
+    "timestamp": "24-10-2024 22:08:02"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Vanilson Banza",
+    "numero_telefone": "922345633",
+    "timestamp": "24-10-2024 22:10:17"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Vanilson Banza",
+    "numero_telefone": "922345633",
+    "timestamp": "24-10-2024 22:10:52"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Vanilson Banza",
+    "numero_telefone": "922345633",
+    "timestamp": "24-10-2024 22:12:56"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Vanilson Banza",
+    "numero_telefone": "922345633",
+    "timestamp": "24-10-2024 22:13:52"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Vanilson Banza",
+    "numero_telefone": "922345633",
+    "timestamp": "24-10-2024 22:15:28"
+  }
 ]

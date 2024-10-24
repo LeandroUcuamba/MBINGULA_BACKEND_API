@@ -18,7 +18,6 @@ import { createReservaMesa, getAllMesasDisponiveis, getAllMesasJaReservadas, mak
 import uploadConfigs from './config/multer'
 import multer from "multer";
 import { createPedidoLocal, deletePedidoLocal, getAllPedidoLocal, getPedidoLocalByUserName, getPedidoLocalById, getPedidoLocalByUserPhone, updatePedidoLocal, updateStatusPedidoLocal } from "./controller/PedidoLocal";
-import { createPedidoCasa, deletePedidoCasa, getAllPedidoCasa, getPedidoCasaByUserName, getPedidoCasaById, getPedidoCasaByUserPhone, updatePedidoCasa, updateStatusPedidoCasa } from "./controller/PedidoCasa";
 const upload = multer(uploadConfigs);
 
 export const router = Router();
@@ -28,7 +27,7 @@ router.post("/user", createUser);
 router.delete("/delete-users", deleteManyUser);
 router.delete("/delete-user/:id", deleteUser);
 router.get("/getAllUsers", getAllUser);
-router.get("/getLoginUser", authMiddleware(["adm"]), getUserIsLogged);
+router.get("/getLoginUser", getUserIsLogged);
 router.get("/get-user/:id", getUser);
 router.get("/getUserByName/:name", getUserByName);
 router.put("/update-user/:id", updateUser);
