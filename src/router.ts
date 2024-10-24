@@ -27,7 +27,7 @@ router.post("/user", createUser);
 router.delete("/delete-users", deleteManyUser);
 router.delete("/delete-user/:id", deleteUser);
 router.get("/getAllUsers", getAllUser);
-router.get("/getLoginUser", getUserIsLogged);
+router.get("/getLoginUser", authMiddleware(["adm", "normal"]), getUserIsLogged);
 router.get("/get-user/:id", getUser);
 router.get("/getUserByName/:name", getUserByName);
 router.put("/update-user/:id", updateUser);

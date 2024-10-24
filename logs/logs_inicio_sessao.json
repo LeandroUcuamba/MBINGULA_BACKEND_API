@@ -96,5 +96,19 @@
     "nome_utilizador": "Vanilson Banza",
     "numero_telefone": "922345633",
     "timestamp": "24-10-2024 22:15:28"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Vanilson Banza",
+    "numero_telefone": "922345633",
+    "timestamp": "24-10-2024 22:19:26"
+  },
+  {
+    "level": "info",
+    "message": "O utilizador logou!",
+    "nome_utilizador": "Vanilson Banza",
+    "numero_telefone": "922345633",
+    "timestamp": "24-10-2024 22:22:41"
   }
 ]
