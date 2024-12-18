@@ -1,35 +1,35 @@
 # MBINGULA_BACKEND - Rest API
  My final university project - Restaurante Mbingula
 
-# Backend do software do restataurante - MBINGULA
+# Backend of the software for the restaurant - MBINGULA
 
- Este é um projeto que dei inicio a sensivelmente no dia "17/03/2024", cujo me foi proposto um desafio para dar solução há problemas que o restaurante Mbingula (Luanda, Angola) enfreta até o momento "08/05/24".
+This is a project I started around "03/17/2024", where I was given a challenge to provide solutions to the problems faced by Restaurante Mbingula (Luanda, Angola) up until "05/08/2024".
  
 
-## 🛠️ Construído com
+## 🛠️ Built with:
 
 * [PostgreSQL](https://www.postgresql.org/).
 * [Node.js](https://nodejs.org/en).
 * [Prisma ORM](https://www.prisma.io/).
 
 
-## 📋🚀🔧 O que consta no projecto
+## 📋🚀🔧 What the project includes:
 
-* Relacionamento entre entidades da BD;
-* Autentição e permissão (Roles);
-* Validações.
+* Relationship between database entities
+* Authentication and authorization (Roles)
+* Validations
 
-## ⚙️ Seu frontend
+## ⚙️ Frontend app:
 
 * (https://github.com/LeandroUcuamba/MBINGULA_FRONTEND)
 
 
-## ✒️ Autores
+## ✒️ Developers/Contributors:
 
-* **Desenvolvedor do projeto** - *Backend* - [Leandro Ucuamba](https://ao.linkedin.com/in/leandrosantosucuamba)
-* **Desenvolvedor do projeto** - *Frontend (React.js) * - [Celso Coutinho](https://ao.linkedin.com/in/celso-coutinho-22075a230) e [Leandro Ucuamba](https://ao.linkedin.com/in/leandrosantosucuamba).
+* **Project Developer** - *Backend* - [Leandro Ucuamba](https://ao.linkedin.com/in/leandrosantosucuamba)
+* **Project Developer** - *Frontend (React.js) * - [Celso Coutinho](https://ao.linkedin.com/in/celso-coutinho-22075a230) e [Leandro Ucuamba](https://ao.linkedin.com/in/leandrosantosucuamba).
 
-## 📷 screenshot
+## 📷 screenshot:
 
 ![Backend-1](https://github.com/user-attachments/assets/3f12990e-b9fa-408a-9ad6-ffbe9535a96b)
 ![Backend-2](https://github.com/user-attachments/assets/8fe733ca-7d11-4e65-a754-ad45556fa143)
