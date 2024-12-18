@@ -1,5 +1,5 @@
 # MBINGULA_BACKEND - Rest API
- My final university project - Restaurante Mbingula
+ My final university project - Mbingula Restaurant
 
 # Backend of the software for the restaurant - MBINGULA
 
